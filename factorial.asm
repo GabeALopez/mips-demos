@@ -3,7 +3,7 @@
 .data
 string1: .asciiz "\nEnter a number of your choice\n"
 string2: .asciiz "\n The factorial is: \n"
-string3: .asciiz "\nThe number entered is less than\n"
+string3: .asciiz "\nThe number entered is less than 0\n"
 .text
 
 la $a0, string1
@@ -18,16 +18,18 @@ move $s0, $v0 #move the number into s0 register
 #check condition
 bltz $s0, error
 
-move $a0, $s0 #pass the number as an argument to 
+move $a0, $s0 #pass the number as an argument to function
 #call factorial
 jal factorial
 
 #--------------------------
 
-error:
 li $v0, 4
-la $a0, string3
+la $a0, string2
 syscall
+
+j exit
+
 
 #--------------------------
 
@@ -44,7 +46,7 @@ addi $sp, $sp, 8
 jr $ra
 
 L1:
-addi $a0, 0($sp)
+addi $a0, $a0, -1
 jal factorial
 
 lw $a0, 0($sp)
@@ -53,3 +55,15 @@ addi $sp, $sp, 8
 
 mul $v0, $a0, $v0
 jr $ra
+
+#--------------------------
+
+error:
+li $v0, 4
+la $a0, string3
+syscall
+
+exit:
+#--------------------------
+
+
