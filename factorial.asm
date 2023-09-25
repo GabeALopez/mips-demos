@@ -45,7 +45,7 @@ jr $ra
 
 L1:
 addi $a0, 0($sp)
-jal fact
+jal factorial
 
 lw $a0, 0($sp)
 lw $ra, 4($sp)
