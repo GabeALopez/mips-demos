@@ -70,4 +70,5 @@ la $a0, string3
 syscall
 #--------------------------
 exit:
-
+li $v0, 10
+syscall
