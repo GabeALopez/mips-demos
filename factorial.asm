@@ -1,4 +1,4 @@
-#calculate factorial of a number This is a test
+#calculate factorial of a number
 
 .data
 string1: .asciiz "\nEnter a number of your choice\n"
