@@ -23,11 +23,15 @@ move $a0, $s0 #pass the number as an argument to function
 jal factorial
 
 #-------Print Factorial Number-------------------
+move $s0, $v0
 
 li $v0, 4
 la $a0, string2
 syscall
 
+li $v0, 1
+move $a0, $s0
+syscall
 
 
 j exit
@@ -64,8 +68,6 @@ error:
 li $v0, 4
 la $a0, string3
 syscall
-
-exit:
 #--------------------------
-
+exit:
 
