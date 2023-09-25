@@ -22,11 +22,13 @@ move $a0, $s0 #pass the number as an argument to function
 #call factorial
 jal factorial
 
-#--------------------------
+#-------Print Factorial Number-------------------
 
 li $v0, 4
 la $a0, string2
 syscall
+
+
 
 j exit
 
@@ -56,7 +58,7 @@ addi $sp, $sp, 8
 mul $v0, $a0, $v0
 jr $ra
 
-#--------------------------
+#-------Print Error Message-------------------
 
 error:
 li $v0, 4
